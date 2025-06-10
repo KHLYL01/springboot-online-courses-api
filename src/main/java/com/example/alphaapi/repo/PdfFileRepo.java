@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface PdfFileRepo extends JpaRepository<PdfFile, String> {
 
-    List<PdfFile> findAllByPart_Id(int id);
+    List<PdfFile> findAllByPartIdOrderByCreateAtAsc(int id);
 }

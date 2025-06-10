@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface LessonRepo extends JpaRepository<Lesson, String> {
 
-    List<Lesson> findAllByPart_Id(int id);
+    List<Lesson> findAllByPartIdOrderByCreateAtAsc(int id);
 
 }

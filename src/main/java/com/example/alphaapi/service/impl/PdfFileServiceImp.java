@@ -56,7 +56,7 @@ public class PdfFileServiceImp implements PdfFileService {
 
     @Override
     public List<PdfFileDto> findAllPdfFileByPartId(int id) {
-        return pdfFileMapper.toDtos(pdfFileRepo.findAllByPart_Id(id));
+        return pdfFileMapper.toDtos(pdfFileRepo.findAllByPartIdOrderByCreateAtAsc(id));
     }
 
     @Override

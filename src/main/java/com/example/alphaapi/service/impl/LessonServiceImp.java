@@ -57,7 +57,7 @@ public class LessonServiceImp implements LessonService {
 
     @Override
     public List<LessonDto> findAllLessonByPartId(int id) {
-        return lessonMapper.toDtos(lessonRepo.findAllByPart_Id(id));
+        return lessonMapper.toDtos(lessonRepo.findAllByPartIdOrderByCreateAtAsc(id));
     }
 
     @Override

@@ -2,6 +2,10 @@ package com.example.alphaapi.model.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Setter
@@ -11,7 +15,7 @@ import lombok.*;
 @NoArgsConstructor
 public class Lesson {
     @Id
-    private  String id;
+    private String id;
     private String title;
     private String videoUrl;
     private String filePath;
@@ -20,4 +24,11 @@ public class Lesson {
     @ManyToOne
     @JoinColumn(name = "part_id")
     private Part part;
+
+    @CreationTimestamp
+    @Column(updatable = false)
+    private LocalDateTime createAt;
+
+    @UpdateTimestamp
+    private LocalDateTime updateAt;
 }

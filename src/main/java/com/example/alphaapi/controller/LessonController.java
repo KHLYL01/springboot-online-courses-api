@@ -61,6 +61,7 @@ public class LessonController {
     }
 
 
+    @PreAuthorize("hasAnyAuthority('USER','ADMIN')")
     @GetMapping("/stream/{videoId}")
     public ResponseEntity<Resource> stream(@PathVariable String videoId) {
 
@@ -78,6 +79,7 @@ public class LessonController {
         return ResponseEntity.ok().contentType(MediaType.parseMediaType(contentType)).body(resource);
     }
 
+    @PreAuthorize("hasAnyAuthority('USER','ADMIN')")
     @GetMapping("/stream/range/{vedioId}")
     public ResponseEntity<Resource> streamInRange(@PathVariable String vedioId, @RequestHeader(value = "Range", required = false) String range) {
 
